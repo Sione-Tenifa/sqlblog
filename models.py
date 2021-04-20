@@ -16,7 +16,7 @@ class User(db.Model):
 
     def __repr__(self):
         u = self
-        return f"<User id={u.id} name-{u.name} species={u.species} hunger={u.hunger}>"
+        return f"<User id={u.id} first_name= {u.first_name} last_name={u.last_name} img={u.img}>"
 
     id = db.Column(db.Integer,
                    primary_key=True,
