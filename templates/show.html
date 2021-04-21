@@ -8,6 +8,7 @@
 
 </head>
 <body>
+  <div class="container">
     <div class="row">
 
         {% if user.img %}
@@ -33,7 +34,9 @@
           </form>
       
         </div>
+        <p><a href="/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a><a href="/posts/{{user.id}}" class="btn btn-primary">Users Post</a></p>
+        <p><a href="/" class="btn btn-primary">Home</a></p>
       </div>
-    
+    </div>
 </body>
 </html>
