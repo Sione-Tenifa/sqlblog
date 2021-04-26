@@ -34,7 +34,17 @@
           </form>
       
         </div>
-        <p><a href="/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a><a href="/posts/{{user.id}}" class="btn btn-primary">Users Post</a></p>
+        <!-- <p><a href="/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a><a href="/posts/{{user.id}}" class="btn btn-primary">Users Post</a></p> -->
+        <ul>
+          {% for post in user.posts %}
+          <li>
+            <a href="/posts/{{ post.id}}">{{ post.title }}</a>
+            <small>{{ post.friendly_date }}</small>
+          </li>
+          {% endfor %}
+        </ul>
+        <p><a href="/users/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a></p>
+
         <p><a href="/" class="btn btn-primary">Home</a></p>
       </div>
     </div>

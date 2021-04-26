@@ -44,6 +44,7 @@ def users_new():
 
     db.session.add(new_user)
     db.session.commit()
+    flash(f"User {new_user.full_name} added.")
 
     return redirect("/")
 
@@ -72,7 +73,7 @@ def users_update(user_id):
 
     db.session.add(user)
     db.session.commit()
-
+    flash(f"User {user.full_name} edited.")
     return redirect("/")
 
 @app.route('/<int:user_id>/delete', methods=["POST"])
@@ -112,7 +113,7 @@ def posts_new(user_id):
 def posts_show(post_id):
     """Show a page with info on a specific post"""
 
-    post = Post.query.get_or_404(post_id)
+    post = Post.query.get(post_id)
     return render_template('/posts/show.html', post=post)
 
 @app.route('/posts/<int:post_id>/edit')
